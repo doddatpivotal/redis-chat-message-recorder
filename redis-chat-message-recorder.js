@@ -10,6 +10,7 @@ module.exports = event => {
 
     var message = JSON.stringify(event.eventBody.message);
 
+    console.log("Date value: "+ event.eventBody.message.date)
     redis.zadd('messages', event.eventBody.message.date, message);
     redis.publish('messages', message);
 
