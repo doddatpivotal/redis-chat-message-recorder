@@ -4,11 +4,11 @@ module.exports = event => {
 
     var Redis = require('ioredis');
 
-    var redis_address = "redis://:"+process.env.REDIS_PASSWORD+"@"+process.env.REDIS_HOST_NAME+":"+process.env.REDIS_PORT;
+    var redis_address = "redis://:"+process.env.REDIS_PASSWORD+"@"+process.env.REDIS_HOST_NAME+":"+(process.env.REDIS_PORT || 6379);
 
     var redis = new Redis(redis_address);
 
-    var message = JSON.stringify(event.eventData.message);
+    var message = JSON.stringify(event.eventBody.message);
 
     redis.zadd('messages', date, message);
     redis.publish('messages', message);
