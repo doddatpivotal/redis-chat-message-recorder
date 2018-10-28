@@ -17,4 +17,5 @@ To set `$DOCKER_ID` do `export DOCKER_ID=your-docker-id`
 #### invoke
 ```
 riff service invoke redis-chat-message-recorder --json -- -d '{"eventName": "messageSent", "eventBody": {"date": "10/29/2019", "username": "fuzzybunnyslippers", "avatar": "//api.adorable.io/avatars/30/fuzzybunnyslippers.png", "message": "hello world!"}}'
+riff service invoke redis-chat-message-recorder --json -- -d '{"eventName":"messageSent","eventBody":{"date":1540744601468,"username":"Patrick Kirlin","avatar":"//api.adorable.io/avatars/30/Patrick Kirlin.png","message":"potty-hello"}}'
 ```
